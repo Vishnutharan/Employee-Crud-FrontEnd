@@ -1,27 +1,63 @@
-# MyEmployeeCrud
+# Employee CRUD – Front End (MyEmployeeCrud)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+Angular single-page application that lists, creates, updates and deletes employees (name, mobile number, e-mail) by calling a REST API.
 
-## Development server
+## Tech stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 14 (Angular CLI 14.2), TypeScript
+- Bootstrap 5
 
-## Code scaffolding
+## Folder structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```text
+Employee-Crud-FrontEnd/
+├── .vscode/
+├── src/
+│   ├── app/
+│   │   ├── models/
+│   │   └── service/
+│   ├── assets/
+│   ├── environments/
+│   ├── index.html
+│   └── main.ts
+├── .browserslistrc
+├── .editorconfig
+├── .gitignore
+├── angular.json
+├── karma.conf.js
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
+```
 
-## Build
+| Path | Purpose |
+| --- | --- |
+| `src/app/app.component.*` | Employee list and form |
+| `src/app/service/employee.service.ts` | HTTP calls (GET, POST, PUT, DELETE) |
+| `src/app/models/employee.ts` | `Employee` model |
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Prerequisites
 
-## Running unit tests
+- Node.js 14.20+, 16.13+ or 18.10+ (supported by Angular 14) and npm
+- An Employee REST API (not part of this repository) exposing `GET/POST/PUT/DELETE` on `https://localhost:7223/api/Employee`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Configuration
 
-## Running end-to-end tests
+The API URL is set in `src/app/service/employee.service.ts` (`baseurl`). Change it there if your API runs on a different address.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Running locally
 
-## Further help
+```bash
+npm install
+npm start          # ng serve → http://localhost:4200
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Build and test
+
+```bash
+npm run build      # output in dist/
+npm test           # Karma + Jasmine
+```
